@@ -1,11 +1,14 @@
 // import React from "react";
-
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import BodyHome from "../container/BodyHome";
 const Home = () => {
     return (
         <div>
-            <h1>Argent Bank</h1>
-            <p>Welcome to Argent Bank</p>
-        
+            <Header />
+            <BodyHome />
+            <Footer />
+            
         </div>
     );
 }
