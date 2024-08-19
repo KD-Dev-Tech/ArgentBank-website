@@ -1,13 +1,10 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+
 import BodyUser from '../container/BodyUser';
 
 const Users = () => {
     return (
-        <div className='body'>
-            <Header />
+        <div className='main bg-dark'>     
             <BodyUser />  
-            <Footer />
         </div>
     );
 }

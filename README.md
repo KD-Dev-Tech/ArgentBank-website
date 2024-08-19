@@ -113,7 +113,7 @@ npm install
 npm run dev:server
 
 # Populate database with two users
-
+npm populate-db
 ```
 
 Votre serveur devrait maintenant fonctionner à l’ adresse http://locahost:3001 et vous aurez désormais deux utilisateurs dans votre base de données MongoDB !
