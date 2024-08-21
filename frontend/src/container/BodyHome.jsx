@@ -17,7 +17,7 @@ const BodyHome = () => {
         <h2 className="sr-only">Features</h2>
         <div className="feature-item">
           <img
-            src="/images/icon-chat.png"
+            src="/images/icon-chat.webp"
             alt="chat logo"
             className="feature-icon"
           />
@@ -29,7 +29,7 @@ const BodyHome = () => {
         </div>
         <div className="feature-item">
           <img
-            src="/images/icon-money.png"
+            src="/images/icon-money.webp"
             alt="icon representing banknotes and the dollar sign"
             className="feature-icon"
           />
@@ -42,7 +42,7 @@ const BodyHome = () => {
         </div>
         <div className="feature-item">
           <img
-            src="/images/icon-security.png"
+            src="/images/icon-security.webp"
             alt="shield check logo"
             className="feature-icon"
           />

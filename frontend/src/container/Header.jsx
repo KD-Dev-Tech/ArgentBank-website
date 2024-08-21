@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { clearAuth } from "../app/authSlice";
 import { NavLink } from "react-router-dom";
-import logo from "../designs/img/argentBankLogo.png";
+import logo from "../designs/img/argentBankLogo.webp";
 
 const Header = () => {
   const dispatch = useDispatch();

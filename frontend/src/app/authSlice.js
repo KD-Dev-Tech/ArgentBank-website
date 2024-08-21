@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const authSlice = createSlice({  // Créer un slice pour gérer l'authentification
+export const authSlice = createSlice({  
     name: 'auth', 
     initialState: {  
-        token: null,  // Initialiser le token à null pour indiquer qu'aucun token n'est présent
+        token: null,  
         email: '',
         password: '',
         isAuthenticated: false,
