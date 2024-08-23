@@ -3,23 +3,22 @@ import { createSlice } from '@reduxjs/toolkit';
 export const userSlice = createSlice({ 
     name: 'user', 
     initialState: { 
-        user: null,
+        user: [],
         error: null,
     },
     reducers: {
     
-        setUserProfile: (state, action) => {
+        setUserProfile: (state, action) => { // ici on récupère le user
             state.user = action.payload;
             },
-        setEditUser: (state, action) => {
-            state.user = state.user.map((user) => // ici on map sur les users pour trouver le user à modifier
-            user.id === action.payload.id ? action.payload : user, // ici on modifie le user
-             )},
-        setError: (state, action) => {
+        setEditUserName: (state, action) => { // ici on modifie le user
+            state.user = action.payload;
+            },
+        setError: (state, action) => { // ici on récupère l'erreur
             state.error = action.payload;
              },
         
 },
 });
     
-export const { setUserProfile, setEditUser, setError  } = userSlice.actions;
+export const { setUserProfile, setEditUserName, setError  } = userSlice.actions;

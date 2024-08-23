@@ -229,6 +229,13 @@ body {
   font-size: 1.2rem;
 }
 
+.modal-edit {
+  box-sizing: border-box;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding: 2rem;
+}
 .footer {
   display: flex;
   justify-content: center;

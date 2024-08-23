@@ -29,9 +29,7 @@ const BodyUser = () => {
         );
           if (reponse.status === 200) {
               const data = await reponse.json();
-              if(data) {
                 dispatch(setUserProfile(data.body))         
-              }
           }
     }
     if (token) {
@@ -42,8 +40,7 @@ const BodyUser = () => {
   return (
     <div className="body">
       <div className="header">  
-        {/* modifier le tony jarvis par le user firstName & UserName */}
-        {user && <h1>Welcome back<br /> {`${user.firstName} ${user.userName}`}</h1>}
+        <h1>Welcome back<br /> {`${user.firstName} ${user.userName}`}</h1>
         <Modal/>
         <button className="edit-button">Edit Name</button>
       </div>

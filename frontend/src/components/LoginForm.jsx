@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setEmail, setPassword, setToken } from '../app/authSlice'; 
+import { useDispatch, useSelector } from 'react-redux';
+import { setEmail } from '../app/authSlice'; 
 
 
 
@@ -10,14 +10,17 @@ const LoginForm = () => {
   const [error, setError] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const dispatch = useDispatch();
-
+  const email = useSelector((state) => state.auth.email); 
+  
   const handleSubmit = async (e) => { 
     e.preventDefault();
     setError('');
     const email = e.target.querySelector("[name=email]").value;
     const password = e.target.querySelector("[name=password]").value;
+    
+    
     const login = { email, password };
-
+    
     try {
       const response = await fetch('http://localhost:3001/api/v1/user/login', {
         method: 'POST',
@@ -26,23 +29,13 @@ const LoginForm = () => {
         },
         body: JSON.stringify(login),
       });
-
-
       if (response.status === 200) {
         const data = await response.json();           
         const token = data.body.token;               
-        dispatch(setEmail(email));
-        dispatch(setPassword(password));
+        dispatch(setEmail(email)); 
+        
         localStorage.setItem('token', token);
-
-        if (rememberMe) {
-          localStorage.setItem('token', token);
-        }
-      }
-      if (localStorage.getItem("token")) { // si le token est présent dans le local storage
-        navigate("/user"); // on redirige vers la page user
-        const token = localStorage.getItem("token");    //   on récupère le token
-        dispatch(setToken(token));  // on dispatch le token
+        navigate("/user")
       }else {
         setError('Email ou mot de passe incorrect');
       }
@@ -65,6 +58,7 @@ const LoginForm = () => {
               type="text" 
               id="email" 
               name="email"
+              defaultValue={email}
             />
           </div>
           <div className="input-wrapper">

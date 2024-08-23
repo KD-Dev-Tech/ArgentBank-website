@@ -5,15 +5,11 @@ export const authSlice = createSlice({
     initialState: {  
         token: null,  
         email: '',
-        password: '',
         isAuthenticated: false,
     },
     reducers: {
         setEmail: (state, action) => {
             state.email = action.payload;
-          },
-          setPassword: (state, action) => {
-            state.password = action.payload;
           },
           setToken: (state, action) => {
             state.token = action.payload;
@@ -21,7 +17,6 @@ export const authSlice = createSlice({
           },
           clearAuth: (state) => {
             state.email = '';
-            state.password = '';
             state.token = null;
             state.isAuthenticated = false;
           },
