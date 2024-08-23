@@ -24,6 +24,7 @@ const handleSignOut = () => {
               />
             <h1 className="sr-only">Argent Bank</h1> 
         </NavLink>
+        {/* changer is authenticated */}
         {isAuthenticated ? (
           <NavLink to={"/"} className="main-nav-item" onClick={handleSignOut}>
           <div>

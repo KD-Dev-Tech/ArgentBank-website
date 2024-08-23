@@ -26,22 +26,23 @@ const LoginForm = () => {
         },
         body: JSON.stringify(login),
       });
-      console.log(response);
 
 
       if (response.status === 200) {
         const data = await response.json();           
         const token = data.body.token;               
-        sessionStorage.setItem('token', token);     
         dispatch(setEmail(email));
         dispatch(setPassword(password));
+        localStorage.setItem('token', token);
+
         if (rememberMe) {
           localStorage.setItem('token', token);
         }
       }
-      if (sessionStorage.getItem("token") || localStorage.getItem("token")) { 
-        navigate("/user");
-        dispatch(setToken(sessionStorage.getItem("token") || localStorage.getItem("token"))); 
+      if (localStorage.getItem("token")) { // si le token est présent dans le local storage
+        navigate("/user"); // on redirige vers la page user
+        const token = localStorage.getItem("token");    //   on récupère le token
+        dispatch(setToken(token));  // on dispatch le token
       }else {
         setError('Email ou mot de passe incorrect');
       }
@@ -64,7 +65,6 @@ const LoginForm = () => {
               type="text" 
               id="email" 
               name="email"
-
             />
           </div>
           <div className="input-wrapper">
