@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { clearAuth } from "../app/authSlice";
+import { setClearUser } from "../app/userSlice";
 import { NavLink } from "react-router-dom";
 import logo from "../designs/img/argentBankLogo.webp";
 
@@ -9,6 +10,7 @@ const Header = () => {
 
 const handleSignOut = () => {
     dispatch(clearAuth());
+    dispatch(setClearUser())
     sessionStorage.removeItem('token');
     localStorage.removeItem('token');
   };
@@ -24,7 +26,6 @@ const handleSignOut = () => {
               />
             <h1 className="sr-only">Argent Bank</h1> 
         </NavLink>
-        {/* changer is authenticated */}
         {isAuthenticated ? (
           <NavLink to={"/"} className="main-nav-item" onClick={handleSignOut}>
           <div>

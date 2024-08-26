@@ -190,6 +190,7 @@ body {
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
+  border-radius: 5px;
 }
 
 .sign-in-content {
@@ -233,9 +234,15 @@ body {
   box-sizing: border-box;
   width: 300px;
   margin: 0 auto;
-  margin-top: 3rem;
-  padding: 2rem;
+  padding:0px 50px 20px 50px;
 }
+
+.form-edit {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
 .footer {
   display: flex;
   justify-content: center;
@@ -291,6 +298,7 @@ body {
   color: #fff;
   font-weight: bold;
   padding: 10px;
+  border-radius: 5px;
 }
 
 .header {
@@ -308,6 +316,7 @@ body {
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
+  border-radius: 5px;
 }
 
 @media (min-width: 720px) {

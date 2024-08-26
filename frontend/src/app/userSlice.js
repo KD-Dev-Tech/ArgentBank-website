@@ -17,8 +17,11 @@ export const userSlice = createSlice({
         setError: (state, action) => { // ici on récupère l'erreur
             state.error = action.payload;
              },
+        setClearUser : (state) => {
+            state.user =null
+            }      
         
 },
 });
     
-export const { setUserProfile, setEditUserName, setError  } = userSlice.actions;
+export const { setUserProfile, setEditUserName, setError, setClearUser  } = userSlice.actions;

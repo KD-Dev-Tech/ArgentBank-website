@@ -1,14 +1,14 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { setEditUserName } from "../app/userSlice";
+import PropTypes from "prop-types";
 
 
-const ModalEditUser = () => {
+const ModalEditUser = ({ onClose }) => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token)
   const user = useSelector((state) => state.user.user) //
   const [userName, setUsername] = useState("")
-  
   console.log("ModalEditUser rendu", user);
 
   const handleChange = (e) => {
@@ -30,7 +30,8 @@ const ModalEditUser = () => {
     )
         if (reponseEdit.status === 200) {
             const data = await reponseEdit.json();
-            dispatch(setEditUserName(data.body))
+            dispatch(setEditUserName(data.body));
+            onClose()
         }
         console.log(reponseEdit);
   }
@@ -38,25 +39,40 @@ const ModalEditUser = () => {
     <div className="modal-edit">
       <form onSubmit={uptdateUser}>
         <div className="input-wrapper">
-          <input type="text"
-          placeholder={user.firstName}
-          disabled
-          />
-          <input type="text"
-          placeholder={user.lastName}
-          disabled
-          />
-          <input type="text"
+          User Name :
+          <input 
+          type="text"
           value={userName} 
           onChange={e => handleChange (e)}
           />
+        </div>      
+        <div className="input-wrapper">
+          First Name : 
+          <input 
+          type="text"
+          placeholder={user.firstName}
+          disabled
+          />
         </div>
-        <button type="submit">save</button>
-        <button type="button">cancel </button>
+        <div className="input-wrapper">
+          Last Name :
+          <input 
+          type="text"
+          placeholder={user.lastName}
+          disabled
+          />
+        </div>
+        <div className="form-edit">
+          <button className="sign-in-button" type="submit">save</button>
+          <button className="sign-in-button" type="button"onClick={onClose}>cancel </button>
+        </div>
           <p></p>
       </form>
     </div>
   )
 }
 
+ModalEditUser.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
 export default ModalEditUser;
