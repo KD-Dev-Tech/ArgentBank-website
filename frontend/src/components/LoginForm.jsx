@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setEmail } from '../app/authSlice'; 
 
 
@@ -10,7 +10,7 @@ const LoginForm = () => {
   const [error, setError] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const dispatch = useDispatch();
-  const email = useSelector((state) => state.auth.email); 
+ 
   
   const handleSubmit = async (e) => { 
     e.preventDefault();
@@ -58,7 +58,8 @@ const LoginForm = () => {
               type="text" 
               id="email" 
               name="email"
-              defaultValue={email}
+              defaultValue= ""
+              autoComplete='username'
             />
           </div>
           <div className="input-wrapper">
@@ -67,6 +68,7 @@ const LoginForm = () => {
               type="password" 
               id="password" 
               name="password"
+              autoComplete='current-password'
             />
           </div>
           <div className="input-remember">

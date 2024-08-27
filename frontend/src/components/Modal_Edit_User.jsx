@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 const ModalEditUser = ({ onClose }) => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token)
-  const user = useSelector((state) => state.user.user) //
+  const user = useSelector((state) => state.user.user) 
   const [userName, setUsername] = useState("")
   console.log("ModalEditUser rendu", user);
 
@@ -38,30 +38,33 @@ const ModalEditUser = ({ onClose }) => {
   return (
     <div className="modal-edit">
       <form onSubmit={uptdateUser}>
-        <div className="input-wrapper">
-          User Name :
-          <input 
-          type="text"
-          value={userName} 
-          onChange={e => handleChange (e)}
-          />
-        </div>      
-        <div className="input-wrapper">
-          First Name : 
-          <input 
-          type="text"
-          placeholder={user.firstName}
-          disabled
-          />
-        </div>
-        <div className="input-wrapper">
-          Last Name :
-          <input 
-          type="text"
-          placeholder={user.lastName}
-          disabled
-          />
-        </div>
+        <label htmlFor="userName">User Name :</label>
+          <div className="input-wrapper">
+            <input 
+            id="userName"
+            type="text"
+            value={userName} 
+            onChange={e => handleChange (e)}
+            />
+          </div>      
+        <label htmlFor="firstName">First Name :</label>
+          <div className="input-wrapper">
+            <input 
+            id="firstName"
+            type="text"
+            placeholder={user.firstName}
+            disabled
+            />
+          </div>
+        <label htmlFor="lastName">Last Name :</label>
+          <div className="input-wrapper">
+            <input 
+            id="lastName"
+            type="text"
+            placeholder={user.lastName}
+            disabled
+            />
+          </div>
         <div className="form-edit">
           <button className="sign-in-button" type="submit">save</button>
           <button className="sign-in-button" type="button"onClick={onClose}>cancel </button>

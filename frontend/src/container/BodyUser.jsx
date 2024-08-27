@@ -50,7 +50,7 @@ const BodyUser = () => {
       <div className="body">
       <div className="header">  
         <h1>
-        {isEdit ? 'Edit User Info' : `Welcome back\n${user.firstName} ${user.userName}`}
+        {isEdit ? 'Edit User Info' : `Welcome back\n${user?.firstName ?? ''} ${user?.userName ?? ''}`}
         </h1>
         {isEdit && <Modal onClose={handleCloseModal} />}
         {!isEdit && (
