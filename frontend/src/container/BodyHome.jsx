@@ -1,3 +1,6 @@
+import Features from '../components/Feature';
+import featuresData from '../data/features.json';
+import heroContentData from '../data/heroContent.json';
 
 const BodyHome = () => {
   return (
@@ -5,55 +8,35 @@ const BodyHome = () => {
       <div className="hero">
         <section className="hero-content">
           <h2 className="se-only">Promoted Content</h2>
-          <p className="subtitle">No fees.</p>
-          <p className="subtitle">No minimum deposit.</p>
-          <p className="subtitle">High interest rates.</p>
-          <p className="text">
-            Open a savings account with Argent Bank today !
-          </p>
+          {heroContentData.heroContent.map((item, index) => (
+            <p key={index} className={item.className}>
+              {item.text}</p>
+          ))}
         </section>
       </div>
       <section className="features">
-        <h2 className="sr-only">Features</h2>
-        <div className="feature-item">
-          <img
-            src="/images/icon-chat.webp"
-            alt="chat logo"
-            className="feature-icon"
-          />
-          <h3 className="feature-item-title">You are our #1 priority</h3>
-          <p>
-            Need to talk to a representative? You can get in touch through our
-            24/7 chat or through a phone call in less than 5 minutes.
-          </p>
-        </div>
-        <div className="feature-item">
-          <img
-            src="/images/icon-money.webp"
-            alt="icon representing banknotes and the dollar sign"
-            className="feature-icon"
-          />
-          <h3 className="feature-item-title">
-            More savings means higher rates
-          </h3>
-          <p>
-            The more you save with us, the higher your interest rate will be!
-          </p>
-        </div>
-        <div className="feature-item">
-          <img
-            src="/images/icon-security.webp"
-            alt="shield check logo"
-            className="feature-icon"
-          />
-          <h3 className="feature-item-title">Security you can trust</h3>
-          <p>
-            We use top of the line encryption to make sure your data and money
-            is always safe.
-          </p>
-        </div>
+          <h2 className="sr-only">Features</h2>
+          
+        {featuresData.map((features, index) => (
+          <Features 
+          key={index}
+          img={features.img}
+          alt={features.alt}
+          title={features.title}
+          description={features.description}
+          />  
+        ))} 
       </section>
-    </>
-  );
+    </> 
+
+);
 }
 export default BodyHome;
+
+
+
+
+
+{/* <h2 className="sr-only">Create an account</h2>
+<p>Interested in opening an account?</p>
+<a href="/signup" className="button">Get started</a> */}

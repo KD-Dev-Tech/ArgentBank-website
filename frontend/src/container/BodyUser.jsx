@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import AccountCard from "../components/AccountCard";
-import Modal from "../components/Modal_Edit_User";
 import { useSelector, useDispatch } from "react-redux";
 import { setUserProfile } from '../app/userSlice'; 
 import { setToken } from '../app/authSlice';
-import accountData from '../data/account_Balance.json'
+import AccountCard from "../components/AccountCard";
+import Modal from "../components/Modal_Edit_User";
+import accountData from '../data/accountBalance.json'
 
 const BodyUser = () => {
   // const token = localStorage.getItem("token");
@@ -20,7 +20,7 @@ const BodyUser = () => {
     if (storedToken) {
       dispatch(setToken(storedToken)); 
     }else {
-      navigate('/error'); // Redirige vers la page d'erreur si le token n'est pas présent
+      navigate('/error'); 
     }
     const userProfile = async() => {
       const reponse = await fetch(
