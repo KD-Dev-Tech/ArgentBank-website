@@ -5,6 +5,7 @@ import Modal from "../components/Modal_Edit_User";
 import { useSelector, useDispatch } from "react-redux";
 import { setUserProfile } from '../app/userSlice'; 
 import { setToken } from '../app/authSlice';
+import accountData from '../data/account_Balance.json'
 
 const BodyUser = () => {
   // const token = localStorage.getItem("token");
@@ -54,8 +55,12 @@ const BodyUser = () => {
       <div className="body">
       <div className="header">  
         <h1>
-        {isEdit ? 'Edit User Info' : `Welcome back\n${user?.firstName ?? ''} ${user?.userName ?? ''}`}
+         {/* ici on récupère le prénom et le nom de l'utilisateur et le ? pour éviter les erreurs si user est null 
+        et le ?? pour afficher une chaine vide si le prénom ou le nom est null */}
+        {isEdit ? 'Edit User Info' : `Welcome back\n${user?.firstName ?? ''} ${user?.userName ?? ''}`} 
         </h1>
+        {/* ici on affiche le bouton edit si isEdit est true et on affiche le modal  
+        le ! devant isEdit permet de dire si isEdit est false alors on affiche le bouton edit  */}
         {isEdit && <Modal onClose={handleCloseModal} />}
         {!isEdit && (
         <button className="edit-button" onClick={handleButtonClick}> 
@@ -63,18 +68,15 @@ const BodyUser = () => {
         </button>
         )}
       </div>
-        <AccountCard 
-        title="Argent Bank Checking (x8349)" 
-        amount="$2,082.79" 
-        description="Available Balance" />
+      {/* On map sur les données de accountData et ? pour éviter les erreurs si accountData est null */}
+       {accountData?.map((account, index) => ( 
         <AccountCard
-        title="Argent Bank Savings (x6712)"
-        amount="$10,928.42"
-        description="Available Balance" />
-        <AccountCard
-        title="Argent Bank Credit Card (x8349)"
-        amount="$184.30"
-        description="Current Balance" /> 
+          key={index}
+          title={account.title}
+          amount={account.amount}
+          description={account.description}
+        />  
+      ))}
     </div>
   )
 };
