@@ -19,7 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/user" element={<Users />} />
-          <Route path="/error" element={<Error />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer  />
         </Provider>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import AccountCard from "../components/AccountCard";
 import Modal from "../components/Modal_Edit_User";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,11 +12,14 @@ const BodyUser = () => {
   const token = useSelector((state) => state.auth.token)
   const user = useSelector((state) => state.user.user)
   const [isEdit, setIsEdit] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
       dispatch(setToken(storedToken)); 
+    }else {
+      navigate('/error'); // Redirige vers la page d'erreur si le token n'est pas présent
     }
     const userProfile = async() => {
       const reponse = await fetch(
@@ -36,7 +40,7 @@ const BodyUser = () => {
       if (token) {
         userProfile();
       }
-    },[token, dispatch]);  
+    },[token, dispatch, navigate]);  
     
     const handleButtonClick = () => {
       setIsEdit(true);
