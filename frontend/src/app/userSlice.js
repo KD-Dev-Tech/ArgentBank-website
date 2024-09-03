@@ -8,13 +8,13 @@ export const userSlice = createSlice({
     },
     reducers: {
     
-        setUserProfile: (state, action) => { // ici on récupère le user
+        setUserProfile: (state, action) => { 
             state.user = action.payload;
             },
-        setEditUserName: (state, action) => { // ici on modifie le user
+        setEditUserName: (state, action) => { 
             state.user = action.payload;
             },
-        setError: (state, action) => { // ici on récupère l'erreur
+        setError: (state, action) => { 
             state.error = action.payload;
              },
         setClearUser : (state) => {

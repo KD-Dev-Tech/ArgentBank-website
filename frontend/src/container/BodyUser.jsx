@@ -55,12 +55,8 @@ const BodyUser = () => {
       <div className="body">
       <div className="header">  
         <h1>
-         {/* ici on récupère le prénom et le nom de l'utilisateur et le ? pour éviter les erreurs si user est null 
-        et le ?? pour afficher une chaine vide si le prénom ou le nom est null */}
         {isEdit ? 'Edit User Info' : `Welcome back\n${user?.firstName ?? ''} ${user?.userName ?? ''}`} 
         </h1>
-        {/* ici on affiche le bouton edit si isEdit est true et on affiche le modal  
-        le ! devant isEdit permet de dire si isEdit est false alors on affiche le bouton edit  */}
         {isEdit && <Modal onClose={handleCloseModal} />}
         {!isEdit && (
         <button className="edit-button" onClick={handleButtonClick}> 
@@ -68,7 +64,6 @@ const BodyUser = () => {
         </button>
         )}
       </div>
-      {/* On map sur les données de accountData et ? pour éviter les erreurs si accountData est null */}
        {accountData?.map((account, index) => ( 
         <AccountCard
           key={index}

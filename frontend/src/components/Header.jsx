@@ -7,6 +7,8 @@ import logo from "../designs/img/argentBankLogo.webp";
 const Header = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.user.user);
+  
 
 const handleSignOut = () => {
     dispatch(clearAuth());
@@ -27,13 +29,17 @@ const handleSignOut = () => {
             <h1 className="sr-only">Argent Bank</h1> 
         </NavLink>
         {isAuthenticated ? (
-          <NavLink to={"/"} className="main-nav-item" onClick={handleSignOut}>
-          <div>
-            <i className="fa fa-user-circle"></i>
-             Sign Out
-          </div>
-          </NavLink>
-        ) : (
+          <div className="user-header">
+              <i className="fa fa-user-circle"></i>
+              {`${user.firstName} ${user.lastName}`}
+            <NavLink to={"/"} className="main-nav-item" onClick={handleSignOut}>
+            <div> 
+            <i className="fa fa-sign-out"></i>
+              Sign Out
+            </div>
+            </NavLink>
+          </div>  
+) : (
           <NavLink to={"/login"} className="main-nav-item">
             <div>
               <i className="fa fa-user-circle"></i>

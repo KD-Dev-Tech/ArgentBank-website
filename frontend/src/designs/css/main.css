@@ -97,6 +97,11 @@ body {
   width: 200px;
 }
 
+.user-header {
+  display: flex;
+  gap: 5px;
+}
+
 .hero {
   background-image: url('../img/bank-tree.webp');
   background-position: 0 -50px;
