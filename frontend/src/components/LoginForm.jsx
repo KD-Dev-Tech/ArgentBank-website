@@ -5,6 +5,7 @@ import { setEmail } from '../app/authSlice';
 
 
 
+
 const LoginForm = () => {
   const navigate = useNavigate();
   const [error, setError] = useState('');
@@ -31,7 +32,8 @@ const LoginForm = () => {
       });
       if (response.status === 200) {
         const data = await response.json();           
-        const token = data.body.token;               
+        const token = data.body.token;   
+        
         dispatch(setEmail(email)); 
         
         localStorage.setItem('token', token);

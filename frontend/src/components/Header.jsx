@@ -31,7 +31,9 @@ const handleSignOut = () => {
         {isAuthenticated ? (
           <div className="user-header">
               <i className="fa fa-user-circle"></i>
-              {`${user.firstName} ${user.lastName}`}
+              <NavLink to={"/user"} className="main-nav-item">
+              {`${user?.firstName ?? ''} ${user?.lastName ?? ''} `}
+              </NavLink>
             <NavLink to={"/"} className="main-nav-item" onClick={handleSignOut}>
             <div> 
             <i className="fa fa-sign-out"></i>
