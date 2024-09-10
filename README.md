@@ -147,3 +147,19 @@ Du HTML et du CSS statiques ont été créés pour la majeure partie du site et 
 Pour certaines fonctionnalités dynamiques, comme l'activation de l'édition utilisateur, il existe une maquette pour cela dans `/designs/wireframes/edit-user-name.png`.
 
 Et pour le modèle d'API que vous proposerez pour les transactions, le wireframe se trouve dans `/designs/wireframes/transactions.png`.
+
+
+
+# lancer le serveur ainsi que l'application :
+
+Diviser le terminal en 2
+
+- Pour lancer le server :
+Dans le premier terminal `cd .\backend\`
+npm run dev:server
+
+
+- Pour lancer l'appli :
+Dans le second terminal `cd frontend `
+npm run dev 
+
