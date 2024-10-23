@@ -1,6 +1,6 @@
 *******************************************************************************
 # Argent Bank API
-![ArgentBanklogo](./public/images/argentBankLogo.webp)
+![ArgentBanklogo](frontend/public/images/argentBankLogo.webp)
 
 ## lancer le serveur ainsi que l'application :
 
