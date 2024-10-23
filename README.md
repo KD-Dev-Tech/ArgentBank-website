@@ -50,7 +50,6 @@ Une fois le serveur de développement démarré, vous pouvez accéder à l'appli
 
 Cette base de code contient le code nécessaire pour exécuter le backend d'Argent Bank.
 
-# Commencer
 # Prérequis
 
 Argent Bank utilise la pile technologique suivante :
